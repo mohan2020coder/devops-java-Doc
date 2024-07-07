@@ -5,10 +5,9 @@ services:
     build:
       context: ./web01
     container_name: web01
-    hostname: web01
     networks:
       private_network:
-        ipv4_address: 192.168.0.110
+        ipv4_address: 192.168.1.110
     ports:
       - "8080:80"
       - "2222:22" # SSH port mapping
@@ -19,10 +18,9 @@ services:
     build:
       context: ./app01
     container_name: app01
-    hostname: app01
     networks:
       private_network:
-        ipv4_address: 192.168.0.111
+        ipv4_address: 192.168.1.111
     mem_limit: 1024m
     ports:
       - "8081:8080"
@@ -34,10 +32,9 @@ services:
     build:
       context: ./rmq01
     container_name: rmq01
-    hostname: rmq01
     networks:
       private_network:
-        ipv4_address: 192.168.0.112
+        ipv4_address: 192.168.1.112
     ports:
       - "8082:5672"
       - "2224:22" # SSH port mapping
@@ -48,10 +45,9 @@ services:
     build:
       context: ./mc01
     container_name: mc01
-    hostname: mc01
     networks:
       private_network:
-        ipv4_address: 192.168.0.113
+        ipv4_address: 192.168.1.113
     ports:
       - "8083:11211"
       - "2225:22" # SSH port mapping
@@ -62,10 +58,9 @@ services:
     build:
       context: ./db01
     container_name: db01
-    hostname: db01
     networks:
       private_network:
-        ipv4_address: 192.168.0.114
+        ipv4_address: 192.168.1.114
     ports:
       - "8084:3306"
       - "2226:22" # SSH port mapping
@@ -77,4 +72,10 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 192.168.0.0/24
+        - subnet: 172.16.1.0/24
+      
+  public:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
