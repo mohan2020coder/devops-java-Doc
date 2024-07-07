@@ -1,0 +1,15 @@
+
+docker exec -it app01 bash
+
+
+docker exec -it db01 bash
+
+
+docker exec -it mc01 bash
+
+
+docker exec -it rmq01 bash
+
+
+docker exec -it web01 bash
+

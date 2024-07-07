@@ -12,6 +12,8 @@ services:
     ports:
       - "8080:80"
       - "2222:22" # SSH port mapping
+    dns:
+      - 8.8.8.8  # Example DNS server
 
   app01:
     build:
@@ -25,6 +27,8 @@ services:
     ports:
       - "8081:8080"
       - "2223:22" # SSH port mapping
+    dns:
+      - 8.8.8.8  # Example DNS server
 
   rmq01:
     build:
@@ -37,6 +41,8 @@ services:
     ports:
       - "8082:5672"
       - "2224:22" # SSH port mapping
+    dns:
+      - 8.8.8.8  # Example DNS server
 
   mc01:
     build:
@@ -49,6 +55,8 @@ services:
     ports:
       - "8083:11211"
       - "2225:22" # SSH port mapping
+    dns:
+      - 8.8.8.8  # Example DNS server
 
   db01:
     build:
@@ -61,6 +69,8 @@ services:
     ports:
       - "8084:3306"
       - "2226:22" # SSH port mapping
+    dns:
+      - 8.8.8.8  # Example DNS server
 
 networks:
   private_network:
